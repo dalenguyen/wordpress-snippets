@@ -1,3 +1,4 @@
+<?php
 function add_custom_mime_types($mimes){
     $new_file_types = array (
         'zip' => 'application/zip',

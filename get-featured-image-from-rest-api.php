@@ -1,3 +1,4 @@
+<?php
 // Put this code in functions.php or a separate plugin
 
 add_action('rest_api_init', 'register_rest_images' );

@@ -1,3 +1,4 @@
+<?php
 function remove_tagcloud_inline_styling($input){
     return preg_replace('/ style=("|\')(.*?)("|\')/','',$input);
 }

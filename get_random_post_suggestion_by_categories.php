@@ -1,3 +1,4 @@
+<?php
 //get categories of post
 $categories = get_the_terms( get_the_ID(), 'category' );
 
