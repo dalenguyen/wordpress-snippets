@@ -1,3 +1,4 @@
+<?php
 //Show the number of posts in an archive page
 
 //get the term object

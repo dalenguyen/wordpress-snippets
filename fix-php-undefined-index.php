@@ -1,3 +1,4 @@
+<?php
 // Put this code in functions.php
 
 // Get array value

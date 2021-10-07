@@ -1,3 +1,4 @@
+<?php
 function add_post_image_to_rss($content) {
     global $post;
     if ( has_post_thumbnail( $post->ID ) ){

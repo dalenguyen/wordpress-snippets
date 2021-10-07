@@ -1,3 +1,4 @@
+<?php
 function disable_self_pingback( &$links ) {
     $home = get_option( 'home' );
     foreach ( $links as $l => $link )

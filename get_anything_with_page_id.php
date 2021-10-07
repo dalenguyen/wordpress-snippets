@@ -1,4 +1,4 @@
-
+<?php
 // Get the page / post content (easy way)
 echo get_post_field('post_content', $page_id);
 
