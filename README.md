@@ -17,3 +17,4 @@ Below is the list of useful WordPress Snippets that you can use when developing 
 + [Get random post suggestion by categories](https://github.com/dalenguyen/wordpress-snippets/blob/master/src/get_random_post_suggestion_by_categories.php)
 + [Get random post suggestion by tags](https://github.com/dalenguyen/wordpress-snippets/blob/master/src/get_random_post_suggestion_by_tags.php)
 + [Remove inline styling from tag cloud](https://github.com/dalenguyen/wordpress-snippets/blob/master/src/remove_inline_styling_from_tag_cloud.php)
++ [Show related posts on single](https://github.com/wajidalitabassum143/wordpress-snippets/blob/master/src/show_related_posts_on_single.php)
