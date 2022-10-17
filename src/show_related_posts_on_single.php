@@ -11,7 +11,7 @@ function related_posts() {
 		array(
 			'category__in'		=> wp_get_post_categories( $current_post_id ),
 			'posts_per_page'	=> 4,
-			'orderby'			=> 'rand',
+			'orderby'		=> 'rand',
 			'post__not_in'		=> array( $current_post_id ) // exlcude currnet post
 		)
 	);
@@ -23,9 +23,9 @@ function related_posts() {
 			while( $related->have_posts() ) {  $related->the_post();
 
 				// related post data
-				$post_id 				= get_the_ID();
-				$post_title 			= get_the_title( $post_id );
-				$post_permalink 		= get_the_permalink( $post_id );
+				$post_id 		= get_the_ID();
+				$post_title 		= get_the_title( $post_id );
+				$post_permalink 	= get_the_permalink( $post_id );
 				$post_featured_image	= get_the_post_thumbnail( $post_id, 'medium' );
 
 				// entry div structure
