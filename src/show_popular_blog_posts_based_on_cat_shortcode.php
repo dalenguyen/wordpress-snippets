@@ -66,15 +66,15 @@ function wp_display_popular_posts( $atts, $content = null ) {
 
 				$popular = new WP_Query( array(
 					'posts_per_page'	=> $num,
-					'meta_key'			=> 'popular_posts',
-					'orderby'			=> 'meta_value_num',
-					'order'				=> 'DESC',
+					'meta_key'		=> 'popular_posts',
+					'orderby'		=> 'meta_value_num',
+					'order'			=> 'DESC',
 					'category__in'		=> $cats
 				) );
 
 				while ( $popular->have_posts() ) : $popular->the_post();
 
-						echo'<li><a href="'. get_the_permalink() .'">'. get_the_title() .'</a></li>';
+					echo'<li><a href="'. get_the_permalink() .'">'. get_the_title() .'</a></li>';
 
 				endwhile;
 
