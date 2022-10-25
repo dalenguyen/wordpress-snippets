@@ -19,3 +19,4 @@ Below is the list of useful WordPress Snippets that you can use when developing 
 + [Remove inline styling from tag cloud](https://github.com/dalenguyen/wordpress-snippets/blob/master/src/remove_inline_styling_from_tag_cloud.php)
 + [Show related posts on single](https://github.com/wajidalitabassum143/wordpress-snippets/blob/master/src/show_related_posts_on_single.php)
 + [Shortcode: show popular blog posts based on cat](https://github.com/wajidalitabassum143/wordpress-snippets/blob/master/src/show_popular_blog_posts_based_on_cat_shortcode.php)
++ [List all authors of a blog grouped by first name with a single letter as a header character](https://github.com/wajidalitabassum143/wordpress-snippets/blob/master/src/list_authors_alphabetically.php)
