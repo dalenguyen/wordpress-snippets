@@ -1,9 +1,9 @@
 function responsive_videos( $html ){
     $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
-    return'<div class="embed-responsive embed-responsive-16by9">'.$html.'</div>';
+    return '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
 }
 
-add_filter( 'embed_oembed_html','evolution_wrap_oembed',10,1);
+add_filter( 'embed_oembed_html','evolution_wrap_oembed', 10, 1 );
 
 //needed CSS Classes
 
