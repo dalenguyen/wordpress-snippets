@@ -2,10 +2,10 @@
 // Put this code in functions.php
 
 // Get array value
-function idx($array, $key){
-  if(isset($array[$key])){
+function idx( $array, $key ) {
+  if ( isset( $array[$key] ) ) {
     return $array[$key];
-  }else{
+  } else {
     return NULL;
   }
 }
