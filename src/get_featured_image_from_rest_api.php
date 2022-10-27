@@ -16,7 +16,10 @@ function register_rest_images() {
 
 function get_rest_featured_image( $object, $field_name, $request ) {
     if ( $object['featured_media'] ) {
-        $img = wp_get_attachment_image_src( $object['featured_media'], 'app-thumb' );
+        $img = wp_get_attachment_image_src( $object['featured_media'], 'thumbnail' ); // change 'thumbnail' to other image size if needed
+        if ( empty( $img ) ) {
+            return false;
+        }
         return $img[0];
     }
     return false;
