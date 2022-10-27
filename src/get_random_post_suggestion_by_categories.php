@@ -9,7 +9,7 @@ $cat_ids    = array_column( $categories, 'term_id' );
 $cat_ids    = implode( ',', $cat_ids );
 
 //get five random posts that are in any category of the current post
-$posts = query_posts( [
+$posts = get_posts( [
     'post_not_in'   => get_the_ID(),
     'cat'           => $cat_ids,
     'order'         => 'ASC',
