@@ -6,7 +6,7 @@ $categories        = get_the_terms( get_the_ID(), 'category' );
 $cat_ids           = array_column( $categories, 'term_id' );
 
 //concat id's to a string with ',' as seperator
-$categories_string = implode($cat_ids, ',');
+$categories_string = implode( $cat_ids, ',' );
 
 //get five random posts that are in any category of the current post
 $posts = query_posts( [
