@@ -1,6 +1,6 @@
 <?php
 //get tags of post
-$tags    = get_the_terms( get_the_ID(), 'tag' );
+$tags = get_the_tags( get_the_ID() );
 
 if ( ! empty( $tags ) ) {
     //extract tag id's from term objects
