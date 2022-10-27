@@ -9,7 +9,7 @@ $tag_ids = array_column( $tags, 'term_id' );
 $tag_ids = implode( $tag_ids, ',' );
 
 //get five random posts that are in any tag of the current post
-$posts = query_posts( [
+$posts = get_posts( [
     'post_not_in'   => get_the_ID(),
     'tag__in'       => $tags_string,
     'order'         => 'ASC',
