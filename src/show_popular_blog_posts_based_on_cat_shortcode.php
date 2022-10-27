@@ -1,15 +1,21 @@
 <?php
 
-// Popular posts - counting hits
+// Popular posts - counting hits.
+
+/**
+ * Increments the post hit counter.
+ *
+ * @param int $post_id Post ID.
+ *
+ * @return void
+ */
 function wp_popular_posts( $post_id ) {
 
 	$count_key = 'popular_posts';
 
 	$count = get_post_meta( $post_id, $count_key, true );
 
-	if ( '' == $count ) {
-		
-		$count = 0;
+	if ( '' === $count ) {
 
 		delete_post_meta( $post_id, $count_key );
 
@@ -18,14 +24,21 @@ function wp_popular_posts( $post_id ) {
 	} else {
 
 		$count++;
-		
+
 		update_post_meta( $post_id, $count_key, $count );
 
 	}
 }
 
+/**
+ * Tracks post view count.
+ *
+ * @param int|null $post_id Post ID. Use global post if empty.
+ *
+ * @return void
+ */
 function wp_track_posts( $post_id ) {
-	
+
 	if ( ! is_single() ) {
 		return;
 	}
@@ -41,49 +54,63 @@ function wp_track_posts( $post_id ) {
 	wp_popular_posts( $post_id );
 
 }
+
 add_action( 'wp_head', 'wp_track_posts' );
 
-
-// Shortcode: display popular posts based on cat
+// Shortcode: display popular posts based on cat.
 add_shortcode( 'popular-posts', 'wp_display_popular_posts' );
-function wp_display_popular_posts( $atts, $content = null ) {
+
+/**
+ * Display popular posts shortcode.
+ *
+ * @param array $attr Shortcode attributes.
+ *
+ * @return false|string
+ */
+function wp_display_popular_posts( $attr ) {
 
 	ob_start();
 
-		extract( shortcode_atts( array(
+	$atts = shortcode_atts(
+		array(
 			'num' => 5,
 			'cat' => '',
-		), $atts ) ); 
+		),
+		$attr
+	);
 
-		$temps = explode( ',', $cat );
+	$temps = explode( ',', $atts['cat'] );
 
-		$array = array();
+	$array = array();
 
-		foreach ( $temps as $temp ) {
-			$array[] = trim( $temp );
-		}
+	foreach ( $temps as $temp ) {
+		$array[] = trim( $temp );
+	}
 
-		$cats = ! empty( $cat ) ? $array : '';
+	$cats = ! empty( $cat ) ? $array : '';
 
-		echo'<ul class="rp-posts">';
+	echo '<ul class="rp-posts">';
 
-			$popular = new WP_Query( array(
-				'posts_per_page' => $num,
-				'meta_key'       => 'popular_posts',
-				'orderby'        => 'meta_value_num',
-				'order'          => 'DESC',
-				'category__in'   => $cats
-			) );
+	$popular = new WP_Query(
+		array(
+			'posts_per_page' => $atts['num'],
+			'meta_key'       => 'popular_posts',
+			'orderby'        => 'meta_value_num',
+			'order'          => 'DESC',
+			'category__in'   => $cats,
+		)
+	);
 
-			while ( $popular->have_posts() ) : $popular->the_post();
+	while ( $popular->have_posts() ) :
+		$popular->the_post();
 
-				echo'<li><a href="'. get_the_permalink() .'">'. get_the_title() .'</a></li>';
+		echo '<li><a href="' . esc_url( get_the_permalink() ) . '">' . esc_html( get_the_title() ) . '</a></li>';
 
-			endwhile;
+	endwhile;
 
-			wp_reset_postdata();
+	wp_reset_postdata();
 
-		echo'</ul>';
+	echo '</ul>';
 
 	return ob_get_clean();
 
